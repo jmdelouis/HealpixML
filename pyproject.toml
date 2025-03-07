@@ -1,0 +1,88 @@
+[project]
+name = "HealpixML"
+version = "0.1.0"
+description = "Package adapted for Machine Learning on the Healpix grid."
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+authors = [
+  { name = "Jean-Marc DELOUIS", email = "jean.marc.delouis@ifremer.fr" },
+]
+
+maintainers = [
+  { name = "Theo Foulquier", email = "theo.foulquier@ifremer.fr" },
+]
+
+dependencies = [
+  "imageio",
+  "imagecodecs",
+  "matplotlib",
+  "numpy",
+  "healpy",
+  "spherical",
+]
+
+requires-python = ">= 3.9"
+keywords = ["scattering transform", "component separation", "denoising"]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/jmdelouis/HealpixML.git"
+Issues = "https://github.com/jmdelouis/HealpixML/issues"
+Documentation = "https://healpixml-documentation.readthedocs.io/en/latest/index.html"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["healpixml"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+target-version = "py39"
+builtins = ["ellipsis"]
+exclude = [
+  ".git",
+  ".eggs",
+  "build",
+  "dist",
+  "__pycache__",
+]
+line-length = 100
+
+[tool.ruff.lint]
+ignore = [
+  "E402", # E402: module level import not at top of file
+  "E501", # E501: line too long - let black worry about that
+  "E731", # E731: do not assign a lambda expression, use a def
+  # ignore for now, fix in a later PR
+  "E722",  # bare except
+  "UP031", # percent-based string interpolation
+]
+select = [
+  "F",   # Pyflakes
+  "E",   # Pycodestyle
+  "I",   # isort
+  "UP",  # Pyupgrade
+  "TID", # flake8-tidy-imports
+  "W",
+]
+extend-safe-fixes = [
+  "TID252", # absolute imports
+]
+fixable = ["I", "TID252"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["HealpixML"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+# Disallow all relative imports.
+ban-relative-imports = "all"
