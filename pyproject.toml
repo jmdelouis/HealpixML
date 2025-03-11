@@ -1,6 +1,6 @@
 [project]
 name = "HealpixML"
-version = "0.1.0"
+version = "0.2.0"
 description = "Package adapted for Machine Learning on the Healpix grid."
 readme = "README.md"
 license = { text = "BSD-3-Clause" }
