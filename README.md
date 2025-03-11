@@ -4,6 +4,9 @@
 
 The HealpixML genesis has been built to synthesise data (2D or Healpix) using Cross Scattering Transform. For a detailed method description please refer to https://arxiv.org/abs/2207.12527. This algorithm could be effectively usable for component separation (e.g. denoising).
 
+## Authors
+J.-M. Delouis, T. Foulquier, L. Mousset, T. Odaka,  P. Campeti, E. Allys,  F. Paul,
+
 ## usage
 
 # Short tutorial
