@@ -7,8 +7,6 @@ The HealpixML genesis has been built to synthesise data (2D or Healpix) using Cr
 ## Authors
 J.-M. Delouis, T. Foulquier, L. Mousset, T. Odaka,  P. Campeti, E. Allys,  F. Paul,
 
-## usage
-
 # Short tutorial
 
 ## Exemple of synthesis
@@ -16,9 +14,6 @@ J.-M. Delouis, T. Foulquier, L. Mousset, T. Odaka,  P. Campeti, E. Allys,  F. Pa
 https://github.com/IAOCEA/demo-HealpixML-pangeo-eosc/blob/main/Demo_Synthesis.ipynb
 
 A more complete exemple of what is doable with HealpixML is here https://github.com/pcampeti/CMBSCAT
-
-
-The python scripts _demo.py_ included in this package demonstrate how to use the HealpixML library to generate synthetic fields that have patterns with the same statistical properties as a specified image.
 
 # Install HealpixML library
 
