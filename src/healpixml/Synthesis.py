@@ -103,7 +103,7 @@ class Synthesis:
 
         if self.operation.BACKEND == "numpy":
             print(
-                "Synthesis does not work with numpy. Please select Torch or Tensorflow FOSCAT backend"
+                "Synthesis does not work with numpy. Please select Torch or Tensorflow HEALPIXML backend"
             )
             return None
 

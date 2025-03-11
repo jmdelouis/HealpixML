@@ -1123,6 +1123,16 @@ class healpixml_backend:
                 return np.float64(x)
             else:
                 return x
+        if isinstance(x, np.complex128):
+            if self.all_bk_type == "float32":
+                return np.complex64(x)
+            else:
+                return x
+        if isinstance(x, np.complex64):
+            if self.all_bk_type == "float64":
+                return np.complex128(x)
+            else:
+                return x
 
         if isinstance(x, np.int32) or isinstance(x, np.int64) or isinstance(x, int):
             if self.all_bk_type == "float64":
@@ -1151,6 +1161,23 @@ class healpixml_backend:
 
         if self.BACKEND == self.NUMPY:
             return x.astype(out_type)
+            
+    def bk_variable(self,x):
+        if self.BACKEND == self.TENSORFLOW:
+            return self.backend.Variable(x)
+            
+        return self.bk_cast(x)
+        
+    def bk_assign(self,x,y):
+        if self.BACKEND == self.TENSORFLOW:
+            x.assign(y)
+        x=y
+            
+    def bk_constant(self,x):
+        if self.BACKEND == self.TENSORFLOW:
+            return self.backend.constant(x)
+            
+        return self.bk_cast(x)
         
     def to_numpy(self,x):
         if isinstance(x, np.ndarray):

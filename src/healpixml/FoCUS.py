@@ -37,7 +37,7 @@ class FoCUS:
             mpi_rank=0,
     ):
 
-        self.__version__ = "3.7.0"
+        self.__version__ = "3.7.3"
         # P00 coeff for normalization for scat_cov
         self.TMPFILE_VERSION = TMPFILE_VERSION
         self.P1_dic = None
@@ -54,7 +54,7 @@ class FoCUS:
 
         if not self.silent:
             print("================================================")
-            print("          START FOSCAT CONFIGURATION")
+            print("          START HEALPIXML CONFIGURATION")
             print("================================================")
             sys.stdout.flush()
 
@@ -515,55 +515,55 @@ class FoCUS:
         l_kernel = int(self.KERNELSZ * self.KERNELSZ)
         try:
             indices = np.load(
-                "%s/FOSCAT_%s_I%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_I%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside)
             )
             weights = np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside)
             )
             xc = np.load(
-                "%s/FOSCAT_%s_X%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_X%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside)
             )
             yc = np.load(
-                "%s/FOSCAT_%s_Y%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_Y%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside)
             )
             zc = np.load(
-                "%s/FOSCAT_%s_Z%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_Z%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside)
             )
         except:
             indices, weights, xc, yc, zc = self.calc_indices_convol(nside, l_kernel)
             np.save(
-                "%s/FOSCAT_%s_I%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_I%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside),
                 indices,
             )
             np.save(
-                "%s/FOSCAT_%s_W%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside),
                 weights,
             )
             np.save(
-                "%s/FOSCAT_%s_X%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_X%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside),
                 xc,
             )
             np.save(
-                "%s/FOSCAT_%s_Y%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_Y%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside),
                 yc,
             )
             np.save(
-                "%s/FOSCAT_%s_Z%d_%d_%d_CNNV3.npy"
+                "%s/HEALPIXML_%s_Z%d_%d_%d_CNNV3.npy"
                 % (self.TEMPLATE_PATH, TMPFILE_VERSION, l_kernel, self.NORIENT, nside),
                 zc,
             )
             if not self.silent:
                 print(
-                    "Write %s/FOSCAT_%s_W%d_%d_%d_CNNV2.npy"
+                    "Write %s/HEALPIXML_%s_W%d_%d_%d_CNNV2.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1342,7 +1342,7 @@ class FoCUS:
                 )
             else:
                 tmp = np.load(
-                    "%s/FOSCAT_%s_W%d_%d_%d_PIDX.npy"
+                    "%s/HEALPIXML_%s_W%d_%d_%d_PIDX.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1554,11 +1554,11 @@ class FoCUS:
                 """
                 if not self.silent:
                     print(
-                        "Write FOSCAT_%s_W%d_%d_%d_PIDX.npy"
+                        "Write HEALPIXML_%s_W%d_%d_%d_PIDX.npy"
                         % (TMPFILE_VERSION, self.KERNELSZ**2, self.NORIENT, nside)
                     )
                 np.save(
-                    "%s/FOSCAT_%s_W%d_%d_%d_PIDX.npy"
+                    "%s/HEALPIXML_%s_W%d_%d_%d_PIDX.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1569,7 +1569,7 @@ class FoCUS:
                     indice,
                 )
                 np.save(
-                    "%s/FOSCAT_%s_W%d_%d_%d_WAVE.npy"
+                    "%s/HEALPIXML_%s_W%d_%d_%d_WAVE.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1580,7 +1580,7 @@ class FoCUS:
                     wav,
                 )
                 np.save(
-                    "%s/FOSCAT_%s_W%d_%d_%d_PIDX2.npy"
+                    "%s/HEALPIXML_%s_W%d_%d_%d_PIDX2.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1591,7 +1591,7 @@ class FoCUS:
                     indice2,
                 )
                 np.save(
-                    "%s/FOSCAT_%s_W%d_%d_%d_SMOO.npy"
+                    "%s/HEALPIXML_%s_W%d_%d_%d_SMOO.npy"
                     % (
                         self.TEMPLATE_PATH,
                         TMPFILE_VERSION,
@@ -1625,7 +1625,7 @@ class FoCUS:
             )
         else:
             tmp = np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_PIDX.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_PIDX.npy"
                 % (
                     self.TEMPLATE_PATH,
                     TMPFILE_VERSION,
@@ -1635,7 +1635,7 @@ class FoCUS:
                 )
             )
             tmp2 = np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_PIDX2.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_PIDX2.npy"
                 % (
                     self.TEMPLATE_PATH,
                     TMPFILE_VERSION,
@@ -1645,7 +1645,7 @@ class FoCUS:
                 )
             )
             wr = np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_WAVE.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_WAVE.npy"
                 % (
                     self.TEMPLATE_PATH,
                     TMPFILE_VERSION,
@@ -1655,7 +1655,7 @@ class FoCUS:
                 )
             ).real
             wi = np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_WAVE.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_WAVE.npy"
                 % (
                     self.TEMPLATE_PATH,
                     TMPFILE_VERSION,
@@ -1665,7 +1665,7 @@ class FoCUS:
                 )
             ).imag
             ws = self.slope * np.load(
-                "%s/FOSCAT_%s_W%d_%d_%d_SMOO.npy"
+                "%s/HEALPIXML_%s_W%d_%d_%d_SMOO.npy"
                 % (
                     self.TEMPLATE_PATH,
                     TMPFILE_VERSION,
