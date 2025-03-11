@@ -11,7 +11,7 @@ J.-M. Delouis, T. Foulquier, L. Mousset, T. Odaka,  P. Campeti, E. Allys,  F. Pa
 
 ## Exemple of synthesis
 
-https://github.com/IAOCEA/demo-HealpixML-pangeo-eosc/blob/main/Demo_Synthesis.ipynb
+https://github.com/jmdelouis/HealpixML/blob/main/Notebooks/Demo_Synthesis.ipynb
 
 A more complete exemple of what is doable with HealpixML is here https://github.com/pcampeti/CMBSCAT
 
